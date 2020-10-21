@@ -1,0 +1,28 @@
+@mixin mainGrad {
+  background-image: linear-gradient($color1 , $color2);
+}
+
+@mixin mainButton {
+  padding: 1.375em 1.875em;
+
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 3rem;
+
+  background: none;
+
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 0.625rem;
+  font-weight: 600;
+
+  outline-style: none;
+  cursor: pointer;
+
+  &:hover {
+    animation: buttonClick 0.3s linear alternate;
+    outline-style: none;
+  }
+
+}
+

@@ -1,0 +1,115 @@
+//STYLING FOR 'ABOUT ME' SECTION
+
+
+//Mobile devices
+
+.about-me {
+  background-color: #eaeaea;
+
+    &-info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      width: 100%;
+      padding-bottom: 2rem;
+
+      .hidden {
+        &::after {
+          background-image: linear-gradient(#eaeaea00, #eaeaea);
+        }
+      }
+
+      .shown {
+        &::after {
+          background-image: linear-gradient(#eaeaea00, #eaeaea);
+        }
+      }
+
+    }
+
+  &-pic {
+    width: 70%;
+    max-width: 300px;
+    object-fit: contain;
+    margin-top: 1rem;
+
+    border-radius: 50%;
+  }
+
+}
+
+
+//Media querries
+
+@media (min-width: 700px) and (max-width: 970px) {
+
+  .about-me {
+
+    &-pic {
+      width: 80%;
+      grid-area: pic;
+      margin: 0 0 auto 0;
+    }
+
+    &-info {
+      width: 100%;
+      padding-top: 1rem;
+
+      display: grid;
+      align-content: start;
+
+      grid-template-columns: 30% 70%;
+      grid-template-rows: 1.2rem auto 2.8rem;
+      grid-template-areas:
+              'pic infoHeader'
+              'pic infoContent'
+              'pic infoBtn';
+
+        &>* {
+          padding: 0 1rem 0 1rem;
+        }
+
+        h3 {
+          grid-area: infoHeader;
+          text-align: left;
+        }
+
+        .content {
+          grid-area: infoContent;
+          padding-bottom: 1rem;
+        }
+
+        .hidden {
+          height: 6rem;
+        }
+
+        button {
+          grid-area: infoBtn;
+          margin: 0 0 0 1rem;
+        }
+
+    }
+
+  }
+
+}
+
+
+@media (min-width: 970px) {
+
+  .about-me {
+
+    .container {
+      flex-direction: row;
+      align-items: start;
+      justify-content: space-between;
+    }
+
+    .about-me-info {
+      width: 20%;
+    }
+
+  }
+
+}

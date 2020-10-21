@@ -1,0 +1,226 @@
+//Due to MOBILE FIRST approach, styling is made for mobile devices first
+
+//Resets all default margins and paddings to 0
+
+* * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+//Imports all .scss partials & font styles from google font
+
+@import "variables";
+@import "mixins";
+@import "partials/normalize";
+@import "partials/print";
+@import "partials/header";
+@import "partials/project-info";
+@import "partials/purple_bar";
+@import "partials/about-me";
+@import "partials/contact";
+@import "partials/_footer";
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap');
+
+
+// Sets main font-family for webpage
+
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+
+// Styles for headers, paragraphs and other text-related html tags
+
+h1 {
+  padding: 0 20px 0 20px;
+
+  text-align: center;
+  font-weight: 100;
+  font-size: 2.0rem;
+  text-transform: uppercase;
+}
+
+h2 {
+  text-transform: uppercase;
+  text-align: center;
+  padding-bottom: 1rem;
+}
+
+h3 {
+  text-align: center;
+  text-transform: uppercase;
+
+  font-weight: 600;
+
+}
+
+h4 {
+  text-align: left;
+  text-transform: uppercase;
+
+  font-weight: 800;
+
+  padding: 1rem 0;
+}
+
+li {
+  margin: 0.6em 0 0 2em;
+}
+
+
+//creates centering container
+
+.container {
+  max-width: 1390px;
+  margin: 0 auto;
+  padding: 0 20px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+// setting common button layout
+
+.main-button {
+  @include mainButton;
+  width: 8rem;
+
+  background: $color1;
+  border-color: #fff;
+  color: #fff;
+}
+
+
+// setting show-more & show-less button layout
+
+.show-more {
+  margin-top: 1.5rem;
+
+  &::after {
+    position: relative;
+    left: 0;
+    top: 0;
+
+    content: "show more";
+
+    animation: buttonClick 0.3s linear alternate;
+  }
+
+}
+
+.show-less {
+  margin-top: 1.5rem;
+
+  &::after {
+    position: relative;
+    left: 0;
+    top: 0;
+
+    content: "show less";
+
+    animation: buttonClick 0.3s linear reverse;
+  }
+
+}
+
+
+//styling for common css classes
+
+.content {
+  margin: 1em 0 0 0;
+}
+
+.hidden {
+  position: relative;
+
+  height: 4em;
+  overflow: hidden;
+
+  &::after {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+
+    content: "";
+
+    width: 100%;
+    height: 100%;
+
+    opacity: 1;
+    background-image: linear-gradient(rgba(#fff , 0) 0%, rgba(#fff , 1) 90%);
+
+    transition: opacity 1s;
+  }
+}
+
+
+.shown {
+  position: relative;
+
+  height: auto;
+
+  &::after {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+
+    content: "";
+
+    width: 100%;
+    height: 100%;
+
+    opacity: 0;
+    background-image: linear-gradient(rgba(#fff , 0) 0%, rgba(#fff , 1) 90%);
+    transition: opacity 1s;
+  }
+}
+
+
+
+
+article {
+  min-height: 100vh;
+  padding: 80px 0 20px 0;
+}
+
+/*
+  THIS IS 'WORK IN PROGRESS' PART
+    .map {
+  background: darkseagreen;
+  height: 600px;
+} */
+
+@keyframes buttonClick {
+
+  100% {
+    background: none;
+    border-color: $color1;
+    color: $color1;
+  }
+
+}
+
+@media (min-width: 700px) {
+
+  article {
+    padding: 110px 0 20px 0;
+  }
+}
+
+@media (min-width: 900px) {
+
+  article {
+    padding: 90px 0 20px 0;
+    min-height: auto;
+  }
+}
+
+
+
+
+

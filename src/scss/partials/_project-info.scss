@@ -1,0 +1,102 @@
+// STYLES FOR ABOUT-PROJECT SECTION
+
+
+//Mobile devices:
+
+.about-project {
+  background: #fff;
+
+  h2 {
+    padding-bottom: 2rem;
+    font-weight: 800;
+  }
+
+  .info {
+    width: 100%;
+    padding-bottom: 3rem;
+  }
+
+  img {
+    width: 100%;
+    margin-bottom: 1em;
+  }
+
+}
+
+
+//Media Querries
+
+@media (min-width: 700px) and (max-width: 970px) {
+
+  .about-project {
+
+    .info {
+      width: 100%;
+
+      display: grid;
+
+      grid-template-columns: 50% 50%;
+      grid-template-rows: 1.2rem auto 2.8rem;
+      grid-template-areas:
+              'pic infoHeader'
+              'pic infoContent'
+              'pic infoBtn';
+
+      &>* {
+        padding: 0 1rem 0 1rem;
+      }
+
+      img {
+        width: 100%;
+        grid-area: pic;
+        margin-bottom: 0;
+      }
+
+      h3 {
+        grid-area: infoHeader;
+        text-align: left;
+      }
+
+      .content {
+        grid-area: infoContent;
+        padding-bottom: 1rem;
+      }
+
+      .hidden {
+        height: 6rem;
+      }
+
+      button {
+        grid-area: infoBtn;
+        margin: 0 0 0 1rem;
+
+        .show-more, .show-less {
+        }
+      }
+
+
+    }
+
+  }
+
+}
+
+@media (min-width: 970px) {
+
+  .about-project {
+
+    .container {
+      flex-direction: row;
+      align-items: start;
+      justify-content: space-between;
+    }
+
+    .info {
+      width: 32%;
+    }
+
+  }
+
+}
+
+

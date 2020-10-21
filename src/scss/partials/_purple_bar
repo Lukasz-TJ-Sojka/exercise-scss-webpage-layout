@@ -1,0 +1,67 @@
+//STYLING OF 'MIDDLE OF THE PAGE' SECTION
+
+
+//Mobile devices
+
+.purpleBar {
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  position: relative;
+  padding: 100px 0 100px 0;
+
+  width: 100%;
+  min-height: 100vh;
+
+  color: #fff;
+
+  @include mainGrad;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    background-image: url("../images/paralax-bg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: right;
+
+    opacity: 0.05;
+
+    width: 100%;
+    height: 100%;
+  }
+
+  .container {
+
+    padding: 0 50px;
+
+    h2 {
+      padding: 20px 0;
+    }
+
+    p {
+      color: rgba(#fff , 0.6);
+
+      font-weight: 200;
+      font-size: 1rem;
+      line-height: 2rem;
+      text-align: center;
+    }
+  }
+}
+
+
+//Media queries
+
+@media (min-width: 970px) {
+
+  .purpleBar {
+    min-height: auto;
+  }
+
+}

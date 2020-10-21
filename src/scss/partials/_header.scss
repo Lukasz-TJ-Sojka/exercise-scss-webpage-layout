@@ -1,0 +1,412 @@
+// STYLES FOR HEADER SECTION
+
+header {
+  position: relative;
+  height: 100vh;
+}
+
+
+// container for background looped video & gradient overlay
+
+.videoBanner{
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  &::after {
+    display: block;
+    content: "";
+    width: 100%;
+    height: 100%;
+
+    @include mainGrad();
+    opacity: 0.8;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}
+
+.videoBanner video{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+// general grid layout for webpage main header content
+
+.bannerGrid {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  display: grid;
+  grid-template-columns: auto 260px auto;
+  grid-template-rows: 60px auto 50px;
+  grid-template-areas:
+      'nav nav nav'
+      'banner banner banner'
+      'bottomLeft bottomCenter bottomRight';
+
+  color: #FFF;
+}
+
+// Styles for main navigation bar and hamburger menu
+
+.main-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 3;
+
+  grid-area: nav;
+
+
+  width: 100%;
+
+  padding: 10px 20px 10px 20px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background: #00000055;
+  box-shadow: 0 0 2px 2px #00000055;
+
+
+  // styles for hamburger menu toggle button
+
+  button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    height: 40px;
+    width: 40px;
+
+    background: none;
+    border: 1px solid rgba(#fff, 0.7);
+    border-radius: 7px;
+
+    outline: none;
+
+    &:hover {
+      background: rgba(#fff , 0.1);
+    }
+
+    span {
+      width: 70%;
+      height: 4px;
+
+      margin: 2px;
+
+      background: rgba(#fff, 0.9);
+      border-radius: 3px;
+
+    }
+  }
+}
+
+
+//Styling of sliding hide/show menu bar
+
+.menu {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 3;
+
+  display: block;
+  height: 100vh;
+
+  background: darken(rgba(#5857f2, 0.9), 50%);
+  box-shadow: 0 0 2px 2px #00000055;
+
+  list-style: none;
+  margin-block-end: 0;
+  margin: 0;
+  padding: 20px;
+
+
+  li {
+    display: block;
+    padding: 20px;
+  }
+
+  a {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 12px;
+    color: rgba(#FFF, 0.7);
+    position: relative;
+
+    &:hover {
+      color: #fff;
+
+      &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 20px;
+
+
+        height: 2px;
+        background: #fff;
+
+        transform: translate(-50% -50%);
+        animation: underLine 2s 1 alternate;
+      }
+    }
+  }
+
+
+  &.hide {
+    left: -320px;
+    transition: 0.5s left;
+  }
+
+
+  &.show {
+    left: 0;
+    transition: 0.5s left;
+  }
+
+}
+
+
+//animation of main menu links
+
+@keyframes underLine {
+  0%
+  {
+    width: 0;
+    left: 50%;
+  }
+  50%
+  {
+    width: 100%;
+    left: 0;
+  }
+
+  100% {
+    width: 0;
+    left: 50%;
+  }
+}
+
+
+// Styles main content of the header
+
+.banner {
+  grid-area: banner;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+
+  h3 {
+    display: none;
+    padding: 0.3rem 20px;
+  }
+
+  p {
+    width: 60%;
+    margin: 0 auto;
+    display: none;
+
+    text-align: center;
+
+    line-height: 2rem;
+    font-weight: 100;
+    font-size: 1.125rem;
+    color: rgba(#FFF, 0.5);
+  }
+
+  &-button {
+    @include mainButton;
+    margin-top: 1rem;
+
+    border-color: #fff;
+    color: #fff;
+
+    outline: none;
+
+  }
+}
+
+
+//Styling main header Scroll Handler
+
+.scrollHandle {
+  width: 1.5rem;
+  height: 2.5rem;
+
+  border: solid 1px rgba(#FFF, 0.5);
+  border-radius: 2rem;
+
+  position: absolute;
+  bottom: 40px;
+
+  &-dot {
+    width: 0.6rem;
+    height: 1.0rem;
+    background: white;
+
+    border-radius: 0.4rem;
+    margin: 0 auto;
+    margin-top: 0.4rem;
+
+    animation: dotMove 0.5s infinite alternate ease-in-out;
+  }
+}
+
+@keyframes dotMove {
+  0% {
+    margin-top: 0.4rem;
+  }
+  0% {
+    margin-top: 1.1rem;
+  }
+
+}
+
+
+//styling bottom shape of main header
+
+.bottom-left {
+  grid-area: bottomLeft;
+  background: #FFF;
+}
+
+.bottom-center {
+  grid-area: bottomCenter;
+  background-image: url("../images/banner-bottom.svg");
+  background-size: contain;
+}
+
+.bottom-right {
+  grid-area: bottomRight;
+  background: #FFF;
+}
+
+
+//MEDIA QUERRIES FOR HEADER
+
+
+@media (min-height: 710px) {
+
+  .banner {
+
+    p, h3{
+        display: block;
+    }
+
+  }
+
+}
+
+
+@media (min-width: 355px) and (min-height: 500px) {
+
+  .banner {
+
+    h1 {
+      font-size: 3rem;
+    }
+
+    p, h3 {
+      display: block;
+    }
+
+  }
+
+}
+
+
+@media (min-width: 700px) {
+
+  .menu {
+    z-index: -1;
+
+    display: flex;
+    justify-content: space-between;
+
+    width: 100%;
+    height: 100px;
+
+    box-shadow: 0 0 2px 2px #00000055;
+
+    li {
+      padding: 10px 0;
+      margin: 35px 0 0 0;
+    }
+
+    &.hide {
+      left: 0;
+      top: -112px;
+      transition: 0.5s top;
+    }
+
+    &.show {
+      left: 0;
+      top: 0px;
+      transition: 0.5s top;
+    }
+
+  }
+}
+
+@media (min-width: 900px) {
+  .main-nav{
+
+    positon: fixed;
+    left: 0;
+    top: 0;
+
+    display: flex;
+
+    height: 60px;
+    box-shadow: 0 0 2px 2px #00000055;
+
+    button {
+      display: none;
+    }
+  }
+
+
+  .menu {
+    display: flex;
+    justify-content: space-between;
+
+    height: 60px;
+    width: auto;
+    padding: 0;
+
+    background: none;
+    box-shadow: none;
+
+    li {
+      padding: 0 0 0 40px;
+      margin: auto 0;
+    }
+
+    &.hide {
+      position: static;
+
+    }
+
+    &.show {
+      position: static;
+    }
+
+  }
+
+}

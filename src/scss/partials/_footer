@@ -1,0 +1,42 @@
+.footer {
+
+  .container {
+    justify-content: space-evenly;
+  }
+
+  padding: 2rem 0;
+
+  background: $color2;
+  min-height: 200px;
+
+  color: #fff;
+
+  &-menu {
+    list-style: none;
+
+
+  }
+
+  a {
+    padding-top: 1em;
+    display: inline-block;
+
+    color: #fff;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 0.8rem;
+  }
+
+  .copyright {
+    padding-top: 3rem;
+
+    font-size: 0.6rem;
+    text-transform: uppercase;
+
+    color: rgba(#fff , 0.6)
+
+  }
+
+
+}
+
