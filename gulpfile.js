@@ -13,7 +13,7 @@ const showError = (err) => {
 }
 
 const sassTask = () => {
-    return gulp.src("src/scss/**/*.scss")
+    return gulp.src("./src/scss/**/*.scss")
         .pipe(sourcemaps.init())
         .pipe(sass({
             outputStyle: "expanded" //nested, expanded, compact, compressed
@@ -22,7 +22,7 @@ const sassTask = () => {
             browsers: ["> 5%"]
         })) //autoprefixy https://github.com/browserslist/browserslist#queries
         .pipe(sourcemaps.write("."))
-        .pipe(gulp.dest("dist/css"));
+        .pipe(gulp.dest("./dist/css"));
 };
 
 
